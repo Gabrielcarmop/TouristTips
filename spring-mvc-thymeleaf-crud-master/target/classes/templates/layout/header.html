@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8"/>
+    <link th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}"
+          href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css"
+          rel="stylesheet" media="screen" />
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="../../static/css/style.css" />
+</head>
+<body>
+
+<div class="header" style="text-align:center;">
+    <div th:fragment="header">
+        <a href="#default" class="logo">Tourist Tips</a>
+        <div class="header-right">
+             <a class="active" href="#" th:href="@{/}">Home</a>
+             <a  th:href="@{/products}" >Pontos Turísticos</a>
+             <a  th:href="@{/products/add}">Cadastrar novo ponto Turístico</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

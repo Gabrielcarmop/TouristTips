@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <title>Products</title>
+    <th:block th:include="layout/header"></th:block>
+    <style>#customers {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    }
+
+    #customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    }
+
+    #customers tr:nth-child(even){background-color: #f2f2f2;}
+
+    #customers tr:hover {background-color: #ddd;}
+
+    #customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: dodgerblue;
+    color: white;
+    }
+    </style>
+</head>
+<body>
+    <h2 style="text-align: center;">Pontos Turísticos </h2>
+   <div class="container">
+        <div th:if="${not #lists.isEmpty(products)}">
+            <table id="customers">
+
+                <tr>
+                    <th>Nome</th>
+                    <th>Estado</th>
+                    <th>Cidade</th>
+                    <th>Horário Funcionamento</th>
+                    <th>Site</th>
+                    <th>Telefone</th>
+                    <th>Preço</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                <tr th:each="product : ${products}">
+                    <td th:text="${product.nome}">Nome</td>
+                    <td th:text="${product.estado}">Estado</td>
+                    <td th:text="${product.cidade}">Cidade</td>
+                    <td th:text="${product.horarioFunc}">Horário Funcionamento</td>
+                    <td th:text="${product.site}">Site</td>
+                    <td th:text="${product.telefone}">Telefone</td>
+                    <td th:text="${product.preco}">Preço</td>
+                    <td><a th:href="${'/products/edit/' + product.id}" class="btn btn-default">Edit</a></td>
+                    <td><a th:href="${'/products/delete/' + product.id}" class="btn btn-danger">Delete</a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
