@@ -24,7 +24,7 @@ public class ProductController {
         return "index";
     }
 
-    @RequestMapping(path = "/products/add", method = RequestMethod.POST)
+    @RequestMapping(path = "/products/add", method = RequestMethod.GET)
     public String createProduct(Model model) {
         model.addAttribute("product", new Product());
         return "edit";
@@ -42,13 +42,13 @@ public class ProductController {
         return "products";
     }
 
-    @RequestMapping(path = "/products/edit/{id}", method = RequestMethod.PUT)
+    @RequestMapping(path = "/products/edit/{id}", method = RequestMethod.GET)
     public String editProduct(Model model, @PathVariable(value = "id") String id) {
         model.addAttribute("product", productRepository.findOne(id));
         return "edit";
     }
 
-    @RequestMapping(path = "/products/delete/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(path = "/products/delete/{id}", method = RequestMethod.GET)
     public String deleteProduct(@PathVariable(name = "id") String id) {
         productRepository.delete(id);
         return "redirect:/products";
